@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcbmrwl0o7r0u"]
+
+[ext_resource type="Script" path="res://fist.gd" id="1_dsv66"]
+[ext_resource type="Texture2D" uid="uid://npg60ehoklq0" path="res://icon.svg" id="1_steki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lflf8"]
+
+[node name="Fist" type="Node2D"]
+position = Vector2(415, 157)
+script = ExtResource("1_dsv66")
+time = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -2)
+scale = Vector2(0.414063, 0.375)
+texture = ExtResource("1_steki")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lflf8")

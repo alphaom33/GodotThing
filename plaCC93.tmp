@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://h0bf7a638rpw"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_38um5"]
+[ext_resource type="Texture2D" uid="uid://npg60ehoklq0" path="res://icon.svg" id="1_ev75v"]
+[ext_resource type="PackedScene" uid="uid://bcbmrwl0o7r0u" path="res://fist.tscn" id="2_y115f"]
+[ext_resource type="PackedScene" uid="uid://hb2juoeu12y5" path="res://crouch.tscn" id="3_ybp85"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8d7n1"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhp0w"]
+size = Vector2(83, 76)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ulg5"]
+size = Vector2(76, 75)
+
+[node name="Player" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_8d7n1")
+script = ExtResource("1_38um5")
+poinch = ExtResource("2_y115f")
+crouch = ExtResource("3_ybp85")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uhp0w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.65332, 0.601562)
+texture = ExtResource("1_ev75v")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6ulg5")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnfs3l7760j8o"]
+
+[ext_resource type="Texture2D" uid="uid://npg60ehoklq0" path="res://icon.svg" id="1_8txjt"]
+[ext_resource type="Script" path="res://disk.gd" id="1_krmu4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fllo4"]
+size = Vector2(123, 20)
+
+[node name="disk" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_krmu4")
+initial = 1000.0
+against = 60.0
+maxSpeed = 1000.0
+up = -30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+scale = Vector2(1, 0.148438)
+texture = ExtResource("1_8txjt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 0)
+shape = SubResource("RectangleShape2D_fllo4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
